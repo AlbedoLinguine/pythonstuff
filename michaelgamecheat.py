@@ -4,9 +4,12 @@ import keyboard
 startScript = False
 
 def startScriptToggle():
-    if(startScript): startScript = False
-    if(not startScript): startScript = True
-    
+    global startScript
+    startScript = not startScript
+    if startScript:
+        print("started")
+    else:
+        print("stopped")
 
 while(startScript):
     print("started")
@@ -14,6 +17,6 @@ while(startScript):
     pyautogui.click()
     pyautogui.press('space')
 
-keyboard.add_hotkey('alt+.', startScriptToggle)
+keyboard.add_hotkey('alt', startScriptToggle)
 
 keyboard.wait('ctrl+0')
